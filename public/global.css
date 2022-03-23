@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'gilroysemi_bold';
+  font-display: swap;
+  src: url('/fonts/gilroy/gilroy-semibold.otf') format('opentype'),
+       url('/fonts/gilroy/gilroy-semibold-webfont.woff2') format('woff2'),
+       url('/fonts/gilroy/gilroy-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gilroybold';
+  font-display: swap;
+  src: url('/fonts/gilroy/gilroy-bold.otf') format('opentype'),
+       url('/fonts/gilroy/gilroy-bold-webfont.woff2') format('woff2'),
+       url('/fonts/gilroy/gilroy-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gilroyregular';
+  font-display: swap;
+  src: url('/fonts/gilroy/gilroy-regular.otf') format('opentype'),
+       url('/fonts/gilroy/gilroy-regular-webfont.woff2') format('woff2'),
+       url('/fonts/gilroy/gilroy-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gilroymedium';
+  font-display: swap;
+  src: url('/fonts/gilroy/gilroy-medium.otf') format('opentype'),
+       url('/fonts/gilroy/gilroy-medium-webfont.woff2') format('woff2'),
+       url('/fonts/gilroy/gilroy-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'gilroymedium', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  line-height: 1.4;
+}
