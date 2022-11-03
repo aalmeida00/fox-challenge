@@ -8,7 +8,7 @@ const Chips = (props) => {
   return (
     <Wrapper data-testid='chipsContent' variation={variation === 'positive' ? 'positive' : 'negative'}>
       <ChipsContent >
-        {variation === 'positive' ? positiveSymbol : negativeSymbol} Chips
+        {variation === 'positive' ? positiveSymbol : negativeSymbol} {content}
       </ChipsContent>
     </Wrapper>
   );

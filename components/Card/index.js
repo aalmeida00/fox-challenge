@@ -38,18 +38,21 @@ const Card = (props) => {
           src={`https://statics.foxbit.com.br/icons/colored/${icon}.svg`}
           alt={symbol}
         />
-        <Chips variation={variation > 0 ? 'positive' : 'negative'} />
+        <Chips
+          variation={variation > 0 ? 'positive' : 'negative'}
+          content={`${!!variation ? variation : '---'}%`}
+        />
       </HeaderWrapper>
       <BodyWrapper>
         <SymbolLabel>{symbol}</SymbolLabel>
         <SymbolValue>
-          <span>R$</span>
+          <span>R$ </span>
           {!!value ? currencyFormatter.format(value).substring(3) : ' ----'}
         </SymbolValue>
       </BodyWrapper>
       <FooterWrapper>
         <VolumeLabel>Volume (24h)</VolumeLabel>
-        <VolumeValue>{!!volume24h ? volume24h : '----'}</VolumeValue>
+        <VolumeValue>{!!volume24h ? volume24h : '----'} {!!icon && icon.toUpperCase()}</VolumeValue>
       </FooterWrapper>
     </Section>
   );
