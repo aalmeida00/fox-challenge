@@ -18,7 +18,7 @@ const Card = (props) => {
   const [variation, setVariation] = useState();
 
   useEffect(() => {
-    if (detailedInfo && (detailedInfo.InstrumentId === instrumentId)) {
+    if (detailedInfo && detailedInfo.InstrumentId === instrumentId) {
       setVolume24h(detailedInfo.Rolling24HrVolume);
       setValue(detailedInfo.LastTradedPx);
       setVariation(detailedInfo.Rolling24HrPxChange);
@@ -42,11 +42,14 @@ const Card = (props) => {
       </HeaderWrapper>
       <BodyWrapper>
         <SymbolLabel>{symbol}</SymbolLabel>
-        <SymbolValue><span>R$</span> {currencyFormatter.format(value).substring(3)}</SymbolValue>
+        <SymbolValue>
+          <span>R$</span>
+          {!!value ? currencyFormatter.format(value).substring(3) : ' ----'}
+        </SymbolValue>
       </BodyWrapper>
       <FooterWrapper>
         <VolumeLabel>Volume (24h)</VolumeLabel>
-        <VolumeValue>{volume24h}</VolumeValue>
+        <VolumeValue>{!!volume24h ? volume24h : '----'}</VolumeValue>
       </FooterWrapper>
     </Section>
   );
