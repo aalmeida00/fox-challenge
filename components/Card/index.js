@@ -3,26 +3,50 @@ import {
   FooterWrapper,
   HeaderWrapper,
   Section,
-  Wrapper,
+  VolumeLabel,
+  VolumeValue,
+  SymbolValue,
+  SymbolLabel,
 } from './styles';
 import Chips from '../Chips';
+import { useEffect, useState } from 'react';
 
 const Card = (props) => {
-  const { icon, name, price, volume, variation } = props;
+  const { icon, symbol, detailedInfo, instrumentId } = props;
+  const [value, setValue] = useState();
+  const [volume24h, setVolume24h] = useState();
+  const [variation, setVariation] = useState();
+
+  useEffect(() => {
+    if (detailedInfo && (detailedInfo.InstrumentId === instrumentId)) {
+      setVolume24h(detailedInfo.Rolling24HrVolume);
+      setValue(detailedInfo.LastTradedPx);
+      setVariation(detailedInfo.Rolling24HrPxChange);
+    }
+  }, [detailedInfo]);
+
+  const currencyFormatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 3,
+  });
 
   return (
     <Section>
       <HeaderWrapper>
-        <img src="https://via.placeholder.com/28x28" alt={name} />
-        <Chips variation="negative" />
+        <img
+          src={`https://statics.foxbit.com.br/icons/colored/${icon}.svg`}
+          alt={symbol}
+        />
+        <Chips variation={variation > 0 ? 'positive' : 'negative'} />
       </HeaderWrapper>
       <BodyWrapper>
-        Asset Name <br />
-        Asset Price
+        <SymbolLabel>{symbol}</SymbolLabel>
+        <SymbolValue><span>R$</span> {currencyFormatter.format(value).substring(3)}</SymbolValue>
       </BodyWrapper>
       <FooterWrapper>
-        Asset Volume <br />
-        Volume
+        <VolumeLabel>Volume (24h)</VolumeLabel>
+        <VolumeValue>{volume24h}</VolumeValue>
       </FooterWrapper>
     </Section>
   );
