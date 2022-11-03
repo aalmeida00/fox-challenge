@@ -20,7 +20,7 @@ describe('Chips', () => {
 
     it('renders a negative chips', () => {
       const { queryByTestId } = render(
-        <Chips variation="positive" content="Chips" />
+        <Chips variation="negative" content="Chips" />
       );
 
       expect(queryByTestId('chipsContent')).toHaveTextContent('↓ Chips');

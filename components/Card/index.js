@@ -32,7 +32,7 @@ const Card = (props) => {
   });
 
   return (
-    <Section>
+    <Section data-testid="card">
       <HeaderWrapper>
         <img
           src={`https://statics.foxbit.com.br/icons/colored/${icon}.svg`}
