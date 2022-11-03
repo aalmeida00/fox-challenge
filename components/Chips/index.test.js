@@ -5,11 +5,25 @@ import Chips from './index';
 describe('Chips', () => {
   describe('when rendered', () => {
     it('renders chips correctly', () => {
-      expect(true).toBe(true);
+      const { queryByTestId } = render(<Chips />);
+
+      expect(queryByTestId('chipsContent')).toBeVisible();
+    });
+
+    it('renders a positive chips', () => {
+      const { queryByTestId } = render(
+        <Chips variation="positive" content="Chips" />
+      );
+
+      expect(queryByTestId('chipsContent')).toHaveTextContent('↑ Chips');
     });
 
     it('renders a negative chips', () => {
-      expect(true).toBe(true);
+      const { queryByTestId } = render(
+        <Chips variation="positive" content="Chips" />
+      );
+
+      expect(queryByTestId('chipsContent')).toHaveTextContent('↓ Chips');
     });
   });
 });
